@@ -109,6 +109,8 @@ class Printer():
             if name_str == self.last_format_header['name']:
                 out_name_str = ' ' * len(name_str)
                     
+        line = ''.join([c if c.isprintable() else '' for c in line])
+
         msg = f'{out_ts_str} │ {out_name_str} │ {line}'
 
         self.last_format_header = {
